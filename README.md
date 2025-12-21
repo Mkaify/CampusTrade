@@ -72,9 +72,9 @@ A smart, student-focused marketplace app built for **UET Taxila**. CampusTrade b
 
 ## 📸 Screenshots
 
-| Login Screen | Home Feed | AI Listing | Chat System |
-|:---:|:---:|:---:|:---:|
-| *(Add Screenshot)* | *(Add Screenshot)* | *(Add Screenshot)* | *(Add Screenshot)* |
+|                  Login Screen                  |                     Home Feed                      |                     AI Listing                      |                     Chat System                      |
+|:----------------------------------------------:|:--------------------------------------------------:|:---------------------------------------------------:|:----------------------------------------------------:|
+| *(campustrade/assets/screen_shots/login.jpeg)* | *(campustrade/assets/screen_shots/home_feed.jpeg)* | *(campustrade/assets/screen_shots/ai_listing.jpeg)* | *(campustrade/assets/screen_shots/chat_system.jpeg)* |
 
 ---
 
