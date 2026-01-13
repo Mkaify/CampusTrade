@@ -49,7 +49,7 @@ A smart, student-focused marketplace app built for **UET Taxila**. CampusTrade b
 
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/your-username/campustrade.git](https://github.com/your-username/campustrade.git)
+    git clone https://github.com/your-username/campustrade.git
     cd campustrade
     ```
 
