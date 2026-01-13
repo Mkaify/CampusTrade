@@ -2,7 +2,7 @@
 
 A smart, student-focused marketplace app built for **UET Taxila**. CampusTrade bridges the gap between students who want to sell used items (books, electronics, hostel gear) and those looking to buy them at affordable prices.
 
-> **Final Year Project (FYP)** - Software Engineering Department
+> **Mobile Application Development (MAD)** - Software Engineering Department
 
 ---
 

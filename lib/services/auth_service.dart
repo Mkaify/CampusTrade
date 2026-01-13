@@ -3,26 +3,42 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // Get current user (to check if logged in)
+  // GET CURRENT USER (This fixes the error)
   User? get currentUser => _auth.currentUser;
 
-  // Sign Up
+  // Sign Up with University Domain Lock
   Future<String?> signUp(String email, String password) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      return null; // Success
+      // DOMAIN CHECK (Enforcing project requirement)
+      if (!email.trim().endsWith('@students.uettaxila.edu.pk')) {
+        return "Registration Restricted: Only @students.uettaxila.edu.pk emails are allowed.";
+      }
+
+      await _auth.createUserWithEmailAndPassword(
+        email: email.trim(),
+        password: password.trim(),
+      );
+      
+      return null; 
     } on FirebaseAuthException catch (e) {
-      return e.message; // Return error message
+      return e.message; 
+    } catch (e) {
+      return "An unknown error occurred.";
     }
   }
 
-  // Sign In
-  Future<String?> signIn(String email, String password) async {
+  // Login
+  Future<String?> login(String email, String password) async {
     try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
-      return null; // Success
+      await _auth.signInWithEmailAndPassword(
+        email: email.trim(),
+        password: password.trim(),
+      );
+      return null; 
     } on FirebaseAuthException catch (e) {
       return e.message;
+    } catch (e) {
+      return "An unknown error occurred.";
     }
   }
 
