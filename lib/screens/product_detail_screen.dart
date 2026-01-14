@@ -38,7 +38,7 @@ class ProductDetailScreen extends StatelessWidget {
         }
       }
     } catch (e) {
-      print("Error launching email: $e");
+      debugPrint("Error launching email: $e");
     }
   }
 
@@ -168,26 +168,43 @@ class ProductDetailScreen extends StatelessWidget {
 
                   // --- THE FIX: Only show button if I am NOT the seller ---
                   if (currentUser?.email != sellerEmail)
-                    SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ChatScreen(receiverEmail: sellerEmail),
+                    Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          height: 50,
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ChatScreen(receiverEmail: sellerEmail),
+                                ),
+                              );
+                            },
+                            icon: const Icon(Icons.chat),
+                            label: const Text("Chat with Seller", style: TextStyle(fontSize: 16)),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                              foregroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                             ),
-                          );
-                        },
-                        icon: const Icon(Icons.chat),
-                        label: const Text("Chat with Seller", style: TextStyle(fontSize: 16)),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          ),
                         ),
-                      ),
+                        const SizedBox(height: 12),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 50,
+                          child: OutlinedButton.icon(
+                            onPressed: () => _contactSeller(context),
+                            icon: const Icon(Icons.email_outlined),
+                            label: const Text("Email Seller", style: TextStyle(fontSize: 16)),
+                            style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
 
                   // Optional: You could show a "Manage Item" text if it IS their item
